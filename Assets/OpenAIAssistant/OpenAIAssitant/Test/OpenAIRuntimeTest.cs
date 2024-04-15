@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UHTTP.Sample.OpenAIAssistant
+namespace OpenAIAssistant
 {
 
     public class OpenAIRuntimeTest : MonoBehaviour

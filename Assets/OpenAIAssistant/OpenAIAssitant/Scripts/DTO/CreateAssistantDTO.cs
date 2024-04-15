@@ -1,5 +1,5 @@
 
-namespace UHTTP.Sample.OpenAIAssistant
+namespace OpenAIAssistant
 {
     [System.Serializable]
     public record CreateAssistantDTO
