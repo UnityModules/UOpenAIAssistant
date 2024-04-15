@@ -31,7 +31,7 @@ namespace OpenAIAssistant.ChatBot
             {
                 CreateThread thread = JsonConvert.DeserializeObject<CreateThread>(json);
                 #if UNITY_EDITOR
-                if(config.logInEditor) Debug.Log("Thread Successfully convert to entity" + thread.id);
+                if(config.logInEditor) Debug.Log("Thread Created Successfully: \n" + thread.id);
                 #endif
                 config.threadId = thread.id;
                 threadCreated?.Invoke();
@@ -52,7 +52,7 @@ namespace OpenAIAssistant.ChatBot
         }
         private void RunAssistant(Action completeAction)
         {
-            Request("Send Message",response => OpenAIAssistantProvider.RunAssistantToThread(config.threadId,config.assistantId, response),Response);
+            Request("Run Assistant",response => OpenAIAssistantProvider.RunAssistantToThread(config.threadId,config.assistantId, response),Response);
 
             void Response(string json) =>
                 completeAction?.Invoke();
@@ -63,7 +63,7 @@ namespace OpenAIAssistant.ChatBot
         public void GetMessages(UnityAction<Message[]> result)
         {
             void Send() =>
-                Request("Send Message",response => OpenAIAssistantProvider.GetMessagesThread(config.threadId, response),Response);
+                Request("Get Messages",response => OpenAIAssistantProvider.GetMessagesThread(config.threadId, response),Response);
 
             Send();
 
@@ -87,7 +87,7 @@ namespace OpenAIAssistant.ChatBot
                 result?.Invoke(messages.messages);
             }
         }
-    
+
         private void Request(string reuqestName,UnityAction<Action<UnityWebRequest>> request,UnityAction<string> requestCompleted)
         {
             void SendRequest() =>
