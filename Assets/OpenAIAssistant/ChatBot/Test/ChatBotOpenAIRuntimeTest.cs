@@ -13,7 +13,7 @@ namespace OpenAIAssistant.ChatBot
 
         [ContextMenu("Send Message")]
         public void SendMessageLocal() =>
-            chatBot.SendMessage(message,messageResp => { Debug.Log("message: <color=green>"+ messageResp.Contents[0].Text.Value+"</color>"); });
+            chatBot.SendMessage(message,messageResp => { Debug.Log("your message: "+message+"\n answer: <color=green>"+ messageResp.Contents[0].Text.Value+"</color>"); });
 
         [ContextMenu("Get Messages")]
         public void GetMessages() =>
