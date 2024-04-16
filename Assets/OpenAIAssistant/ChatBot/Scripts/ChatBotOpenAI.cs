@@ -80,7 +80,10 @@ namespace OpenAIAssistant.ChatBot
                 if (resetRequest)
                 {
                     CoroutineRunner.Run(Send, config.delayGetMessage);
-                    Debug.Log("Waiting for assistant message ...");
+                    #if UNITY_EDITOR
+                    if(config.logInEditor) Debug.Log("Waiting for assistant message ...");
+                    #endif
+                    
                     return;
                 }
 
