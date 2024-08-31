@@ -17,7 +17,7 @@ namespace OpenAIAssistant
         private static List<KeyValuePair<string, string>> Headers = new List<KeyValuePair<string, string>>()
         {
             HTTPHeaderHelper.ContentType,
-            new KeyValuePair<string, string>("OpenAI-Beta", "assistants=v1")
+            new KeyValuePair<string, string>("OpenAI-Beta", "assistants=v2")
         };
 
         public static void Initialize(string token = null) =>
