@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
-namespace OpenAIAssistant.ChatBot
+namespace OpenAI.Assistant.ChatBot
 {
     public class ChatBotOpenAI
     {

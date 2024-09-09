@@ -1,5 +1,5 @@
 
-namespace OpenAIAssistant.ChatBot
+namespace OpenAI.Assistant.ChatBot
 {
     [System.Serializable]
     public record ChatBotConfig

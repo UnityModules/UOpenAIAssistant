@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 using Newtonsoft.Json;
 using UHTTP;
 
-namespace OpenAIAssistant
+namespace OpenAI.Assistant
 {
     public static class OpenAIAssistantProvider
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace OpenAIAssistant.ChatBot
+namespace OpenAI.Assistant.ChatBot
 {
     public class ChatBotOpenAIRuntimeTest : MonoBehaviour
     {

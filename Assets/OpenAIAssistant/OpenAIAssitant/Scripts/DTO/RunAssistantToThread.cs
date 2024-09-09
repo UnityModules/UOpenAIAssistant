@@ -1,5 +1,5 @@
 
-namespace OpenAIAssistant
+namespace OpenAI.Assistant
 {
     [System.Serializable]
     public record RunAssistantToThreadDTO

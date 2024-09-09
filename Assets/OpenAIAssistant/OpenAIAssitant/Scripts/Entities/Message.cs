@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace OpenAIAssistant.ChatBot
+namespace OpenAI.Assistant.ChatBot
 {
     [System.Serializable]
     public partial class Messages
