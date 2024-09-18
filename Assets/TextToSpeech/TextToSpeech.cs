@@ -28,10 +28,7 @@ namespace OpenAI.TTS
             if(!instance)
                 return;
 
-
-  // convert this to body json:
-              
-
+            // convert this to body json:
             HTTPRequestData reqData = new HTTPRequestData()
             {
                 URL = API_URL,
@@ -61,16 +58,17 @@ namespace OpenAI.TTS
                     return;
                 }
 
-                string outputFilePath = Path.Combine(Application.persistentDataPath, "speech.wav");
+                string outputFilePath = Path.Combine(Application.persistentDataPath, "speech.mp3");
                 File.WriteAllBytes(outputFilePath, request.downloadHandler.data);
+                Debug.Log(outputFilePath);
 
                 instance.StartCoroutine(DownloadAudio(outputFilePath, callback));
             }
         }
 
-        private static IEnumerator DownloadAudio(string url,UnityAction<AudioClip> callback = null)
+        public static IEnumerator DownloadAudio(string url,UnityAction<AudioClip> callback = null)
         {
-            UnityWebRequest audioRequest = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.WAV);
+            UnityWebRequest audioRequest = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.UNKNOWN);
             yield return audioRequest.SendWebRequest();
             callback?.Invoke(audioRequest.result == UnityWebRequest.Result.Success ? DownloadHandlerAudioClip.GetContent(audioRequest) : null);
         }

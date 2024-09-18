@@ -5,7 +5,10 @@ namespace OpenAI.TTS
     public class TTSRuntimeTest : MonoBehaviour
     {
         [SerializeField] private string apiKey;
+        [SerializeField] private string message = "Hello World!";
         private AudioSource audioSource;
+
+        [SerializeField] private string audioLocalPath = "";
 
         private void Awake()
         {
@@ -19,13 +22,20 @@ namespace OpenAI.TTS
         {
             if(Input.GetKeyDown(KeyCode.Space))
                 Apply();
+
+            if(Input.GetKeyDown(KeyCode.E))
+               StartCoroutine(TextToSpeech.DownloadAudio(audioLocalPath,PlayAudio));
+
         }
 
         private void Apply()
         {
-            Debug.Log("Send Request: "+"Hello World");
-            TextToSpeech.Request("Hello World", (clip) =>
-            {
+            Debug.Log("Send Request: "+message);
+            TextToSpeech.Request(message,PlayAudio, 100);
+        }
+
+        private void PlayAudio(AudioClip clip)
+        {
                 if(!clip)
                 {
                     Debug.Log("Failed to download audio");
@@ -33,7 +43,6 @@ namespace OpenAI.TTS
                 }
                 audioSource.clip = clip;
                 audioSource.Play();
-            }, 100);
         }
     }
 }
