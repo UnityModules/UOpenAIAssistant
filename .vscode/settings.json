@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "UHTTP_OpenAI_Assistant_Sample.sln"
+    "dotnet.defaultSolution": "UOpenAIAssistant.sln"
 }
