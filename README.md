@@ -1,5 +1,8 @@
 # OpenAI Assistant Unity Package
   Voice Bot and Chat Bot based on OpenAI GPT
+
+------------------------------------------------
+  
 Modules:
 - Voice Recorder
 - Audio File Saver
