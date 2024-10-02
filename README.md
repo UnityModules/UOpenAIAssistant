@@ -11,5 +11,6 @@ Modules:
 - Speech To Text
 - Chat Bot
 - Voice Bot
+- Thread and Assistant Open AI Provider
 
 You Can Install it from Unity Package Manager
