@@ -1,2 +1,10 @@
-# UHTTP OpenAI Assistant Sample
- This is a Sample of UHTTP - Open AI Assistant + Chat Bot Sample
+# OpenAI Assistant Sample
+  Voice Bot and Chat Bot based on OpenAI GPT
+Modules:
+- Voice Recorder
+- Audio File Saver
+- Audio File Loader
+- Text To Speech
+- Speech To Text
+- Chat Bot
+- Voice Bot
