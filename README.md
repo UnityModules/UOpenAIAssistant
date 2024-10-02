@@ -1,4 +1,4 @@
-# OpenAI Assistant Sample
+# OpenAI Assistant Unity Package
   Voice Bot and Chat Bot based on OpenAI GPT
 Modules:
 - Voice Recorder
@@ -8,3 +8,5 @@ Modules:
 - Speech To Text
 - Chat Bot
 - Voice Bot
+
+You Can Install it from Unity Package Manager
