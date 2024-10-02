@@ -1,0 +1,14 @@
+{
+  "name": "com.ahengine.uopenaiassistant",
+  "version": "1.0.6",
+  "displayName": "UOpenAIAssistant",
+  "description": "Voice/Chat Bot based on OpenAI",
+  "unity": "2022.3",
+  "unityRelease": "0f1",
+  "author": {
+    "name": "Hamidreza Karamian"
+  },
+    "dependencies": {
+
+  }
+}
