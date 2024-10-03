@@ -32,7 +32,7 @@ namespace OpenAI.VoiceBot
         public void CancelRecord() =>
             recorder.Stop();
 
-        public void Send(Action<AudioClip> result) 
+        public void Send(Action<AudioClip> result,string commandBeforeMessage = "") 
         {
             if(!recorder.IsRecording)
                 return;
@@ -45,7 +45,7 @@ namespace OpenAI.VoiceBot
             void OnRecognized(string text)
             {
                 Debug.Log("Recognized: " + text);
-                chatBot.SendMessage(text,OnChatBotAnswerStream,OnChatBotAnswer);
+                chatBot.SendMessage(commandBeforeMessage+text,OnChatBotAnswerStream,OnChatBotAnswer);
             }
 
             void OnChatBotAnswerStream(Message message)

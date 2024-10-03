@@ -32,6 +32,6 @@ namespace OpenAI.InterfaceLayer
         }
 
         public static string Message =>
-            "I'm in " + CurrentId +" Layer";
+            "I'm in " + CurrentId +" Layer \n";
     }
 }
