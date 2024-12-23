@@ -6,10 +6,12 @@ namespace VoiceRecord
     public class VoiceRecorder
     {
         public bool IsRecording {private set; get;}
-        private AudioClip recordedClip;
-        private string microphoneDevice;
+        public AudioClip RecordedClip { private set; get; }
+        public string MicrophoneDevice { private set; get; }
 
-        public AudioClip Record(int lengthSec = 10)
+        private VoiceStreamRecorder streamer;
+
+        public AudioClip Record(int lengthSec = 10, VoiceStreamRecorder streamAudio = null)
         {
             if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
             {
@@ -25,10 +27,10 @@ namespace VoiceRecord
                 return null;
             }
             
-            microphoneDevice = Microphone.devices[0];  // Use the first available microphone
-            recordedClip = Microphone.Start(microphoneDevice, false, lengthSec, 44100);  // Record for up to 10 seconds
+            MicrophoneDevice = Microphone.devices[0];  // Use the first available microphone
+            RecordedClip = Microphone.Start(MicrophoneDevice, false, lengthSec, 44100);  // Record for up to 10 seconds
 
-            if(recordedClip == null)
+            if(RecordedClip == null)
             {
                 #if UNITY_EDITOR
                 Debug.Log("Failed to record audio.");
@@ -41,7 +43,9 @@ namespace VoiceRecord
             Debug.Log("Recording started...");
             #endif
 
-            return recordedClip;
+            (streamer = streamAudio)?.StartStream();
+
+            return RecordedClip;
         }
         public AudioClip Stop()
         {
@@ -55,9 +59,10 @@ namespace VoiceRecord
             Debug.Log("Recording Complete");
             #endif
 
-            Microphone.End(microphoneDevice);
+            Microphone.End(MicrophoneDevice);
             IsRecording = false;
-            return recordedClip;
+            streamer?.StopStream();
+            return RecordedClip;
             // AudioSaver.Save(recordedClip, filePath);
             // Debug.Log("Recording stopped. Audio saved at: " + filePath);
         }

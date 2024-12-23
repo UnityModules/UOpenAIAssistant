@@ -16,7 +16,7 @@ namespace OpenAI.TTS
 
         public static void Request(string input,Action<AudioClip> callback, int maxToken = 100)
         {
-            UnityWebRequest request = UnityWebRequest.Post(API_URL,"");
+            UnityWebRequest request = UnityWebRequest.PostWwwForm(API_URL,"");
             request.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(
                 "{"
                 + "\"model\": \"tts-1\","

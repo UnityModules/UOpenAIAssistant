@@ -9,6 +9,7 @@
     "name": "Hamidreza Karamian"
   },
     "dependencies": {
+      "com.itisnajim.socketiounity": "https://github.com/itisnajim/SocketIOUnity.git"
 
   }
 }
