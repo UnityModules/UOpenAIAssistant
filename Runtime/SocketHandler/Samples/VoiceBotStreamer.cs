@@ -16,6 +16,9 @@ namespace USocketHandler.Test
                     JsonConvert.DeserializeObject<AIResponseAudioChunk>(response.GetValue<JObject>().ToString());
 
                 voiceBot.SendStream(deserializedData.Audio, deserializedData.Status == "completed",null,null);
+
+                if (deserializedData.Status == "completed")
+                    socketHandler.AIResponseAudioChunk = null;
             };
         }
     }
